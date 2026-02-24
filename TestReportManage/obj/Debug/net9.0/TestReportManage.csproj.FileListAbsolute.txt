@@ -98,3 +98,4 @@ W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\TestReportManage\bin\Debug\net9.
 W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\TestReportManage\bin\Debug\net9.0\System.Xml.XPath.XmlDocument.dll
 W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\TestReportManage\bin\Debug\net9.0\dllAndUnitTest.dll
 W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\TestReportManage\bin\Debug\net9.0\dllAndUnitTest.pdb
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\TestReportManage\obj\Debug\net9.0\TestReportManage.sourcelink.json
