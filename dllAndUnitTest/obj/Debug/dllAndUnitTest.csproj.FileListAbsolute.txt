@@ -1,0 +1,6 @@
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\bin\Debug\dllAndUnitTest.dll
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\bin\Debug\dllAndUnitTest.pdb
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\obj\Debug\dllAndUnitTest.csproj.AssemblyReference.cache
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\obj\Debug\dllAndUnitTest.csproj.CoreCompileInputs.cache
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\obj\Debug\dllAndUnitTest.dll
+W:\Colledge\02.02\UnitTestAndDll\dllAndUnitTest\dllAndUnitTest\obj\Debug\dllAndUnitTest.pdb
