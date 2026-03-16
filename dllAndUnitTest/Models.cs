@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace dllAndUnitTest
 {
-    // Класс OrderResult представляет результат действий с Отчетами
+    // Класс ReportState представляет результат действий с Отчетами
     public class ReportState
     {
-        public bool Succes {  get; }
+        public bool Success {  get; }
         public string Report { get; }
         public List<Report> DataList { get; } = null;
         public int Count { get; } = -1;
 
-        public ReportState(bool succes, string report)
+        public ReportState(bool success, string report)
         {
-            Succes = succes;
+            Success = success;
             Report = report;
 
             //DataList и Count значения по умолчанию
@@ -24,18 +24,18 @@ namespace dllAndUnitTest
             Count = -1; 
         }
 
-        public ReportState(bool succes, string report, List<Report> data)//перегрузка для функций которые осуществляют поиск
+        public ReportState(bool success, string report, List<Report> data)//перегрузка для функций которые осуществляют поиск
         {
-            Succes = succes;
+            Success = success;
             Report = report;
             DataList = data;  
 
             //Count значение по умолчанию
             Count = -1;
         }
-        public ReportState(bool succes, string report, int count)//перегрузка для функций которая возвращает число
+        public ReportState(bool success, string report, int count)//перегрузка для функций которая возвращает число
         {
-            Succes = succes;
+            Success = success;
             Report = report;
             Count = count;
 

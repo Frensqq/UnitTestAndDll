@@ -49,7 +49,7 @@ namespace dllAndUnitTest
                 throw new ArgumentException("description is null");
             }
 
-            //При сваивание текущего времени на момент создания отчета
+            //Присваивание текущего времени на момент создания отчета
             DateTime CreateDate = DateTime.Now;
 
             //Создание отчета
@@ -200,7 +200,7 @@ namespace dllAndUnitTest
         /// <summary>
         /// Получение отчетов по пользователю
         /// </summary>
-        /// <param name="UserId">идентификатор пользоваетель по которому осуществляется поиск</param>
+        /// <param name="UserId">идентификатор пользователя по которому осуществляется поиск</param>
         /// <returns></returns>
         /// <exception cref="ArgumentException"></exception>
         public ReportState getReportsUser(string UserId)

@@ -2,7 +2,7 @@
 
 namespace TestReportManager;
 
-// Класс OrderProcessorTests содержит тесты для проверки функциональности класса OrderProcessor
+// Класс TestReportManager содержит тесты для проверки функциональности класса ReportManager
 public class TestReportManager
 {
     // Поля для хранения экземпляра ReportManager и словаря запасов
@@ -65,7 +65,7 @@ public class TestReportManager
     //-------------------------Создание отчета----------------------------------------------------------------
     //Создание отчета
     [Test]
-    public void ReportManager_postOrder_Success()
+    public void ReportManager_postReport_Success()
     {
         var result = _reportManager.postReport(
             "тестовый",
@@ -73,12 +73,12 @@ public class TestReportManager
             "это описание тестового отчета",
             "в процессе");
 
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
     }
 
     //Создание отчета с пустым типом
     [Test]
-    public void ReportManager_postOrder_EmptyType_Failure()
+    public void ReportManager_postReport_EmptyType_Failure()
     {
 
         Assert.Throws<ArgumentException>(() => 
@@ -92,7 +92,7 @@ public class TestReportManager
 
     //Создание отчета с пустым User
     [Test]
-    public void ReportManager_postOrder_EmptyUser_Failure()
+    public void ReportManager_postReport_EmptyUser_Failure()
     {
 
         Assert.Throws<ArgumentException>(() =>
@@ -106,7 +106,7 @@ public class TestReportManager
 
     //Создание отчета с пустым описанием
     [Test]
-    public void ReportManager_postOrder_EmptyDescription_Failure()
+    public void ReportManager_postReport_EmptyDescription_Failure()
     {
 
         Assert.Throws<ArgumentException>(() =>
@@ -123,23 +123,23 @@ public class TestReportManager
     //-------------------------Удаление отчета----------------------------------------------------------------
     //Удаление отчета
     [Test]
-    public void ReportManager_deleteOrder_Success()
+    public void ReportManager_deleteReport_Success()
     {
         var result = _reportManager.deleteReport(1);
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
     }
 
     //Удаление несуществующего отчета
     [Test]
-    public void ReportManager_deleteOrder_NotFoundId_Failure()
+    public void ReportManager_deleteReport_NotFoundId_Failure()
     {
         var result = _reportManager.deleteReport(7);
-        Assert.IsFalse(result.Succes);//Проверка, что удаление не было успешным
+        Assert.IsFalse(result.Success);//Проверка, что удаление не было успешным
         Assert.That(result.Report, Is.EqualTo($"Report id = 7 NotFound")); // Проверка сообщения об ошибке
     }
     //Удаление отчета по отрицательному id
     [Test]
-    public void ReportManager_deleteOrder_NegativeId_Failure()
+    public void ReportManager_deleteReport_NegativeId_Failure()
     {
         Assert.Throws<ArgumentException>(() =>
             _reportManager.deleteReport(-1));// Проверка, что выбрасывается исключение
@@ -153,7 +153,7 @@ public class TestReportManager
     public void ReportManager_getReports_Success()
     {
         var result = _reportManager.getReports();
-        Assert.IsTrue(result.Succes); //Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success); //Проверка, что функция выполнилась успешно
         Assert.AreEqual(5, result.DataList.Count); //Проверка что возвращено 5 отчетов
                                                    //(Так как в данном тесте 5 отчетов)
     }
@@ -170,7 +170,7 @@ public class TestReportManager
 
 
         var result = _reportManager.getReports();
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не было успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не было успешным
         Assert.That(result.Report, Is.EqualTo("NotFound reports")); // Проверка сообщения об ошибке
     }
 
@@ -181,7 +181,7 @@ public class TestReportManager
     public void ReportManager_getReport_Success()
     {
         var result = _reportManager.getReportId(2);
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
         Assert.AreEqual(1, result.DataList.Count); //Проверка что возвращен только 1 отчет
     }
 
@@ -190,7 +190,7 @@ public class TestReportManager
     public void ReportManager_getReportId_NotFoundId_Failure()
     {
         var result = _reportManager.getReportId(6);
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не было успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не было успешным
         Assert.That(result.Report, Is.EqualTo($"Report id = 6 NotFound")); // Проверка сообщения об ошибке
     }
 
@@ -208,7 +208,7 @@ public class TestReportManager
     public void ReportManager_getReportType_Success()
     {
         var result = _reportManager.getReportsType("финансовый");
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
         Assert.AreEqual(3, result.DataList.Count); //Проверка что возвращено 3 отчета
     }
     //Вывод записей отчетов с несуществующим типом (с типом с которым кол-во записей = 0)
@@ -218,7 +218,7 @@ public class TestReportManager
         var result = _reportManager.getReportsType(
            "мобильный"
           );
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не был успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не был успешным
         Assert.That(result.Report, Is.EqualTo("Reports Type = мобильный NotFound")); // Проверка сообщения об ошибке
     }
 
@@ -236,7 +236,7 @@ public class TestReportManager
             "UpdatedUser",
             "это описание тестового отчета",
             "завершен");
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
 
     }
 
@@ -250,7 +250,7 @@ public class TestReportManager
             "UpdatedUser",
             "это описание тестового отчета",
             "завершен");
-        Assert.IsFalse(result.Succes);//Проверка, что редактирование не было успешным
+        Assert.IsFalse(result.Success);//Проверка, что редактирование не было успешным
         Assert.That(result.Report, Is.EqualTo($"Report id = 6 NotFound")); // Проверка сообщения об ошибке
     }
 
@@ -262,7 +262,7 @@ public class TestReportManager
     public void ReportManager_getReportsUser_Success()
     {
         var result = _reportManager.getReportsUser("Ivan");
-        Assert.IsTrue(result.Succes);//Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);//Проверка, что функция выполнилась успешно
         Assert.AreEqual(2, result.DataList.Count); //Проверка что возвращено 2 отчета
                                                    //(Так как только 2 отчета в данном тесте имеют подходящие данные)
     }
@@ -274,7 +274,7 @@ public class TestReportManager
         var result = _reportManager.getReportsUser(
             "Nikolay"
            );
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не был успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не был успешным
         Assert.That(result.Report, Is.EqualTo("Reports UserId = Nikolay NotFound")); // Проверка сообщения об ошибке
     }
 
@@ -286,17 +286,17 @@ public class TestReportManager
     public void ReportManager_getReportsStatus_Success()
     {
         var result = _reportManager.getReportsStatus("в процессе");
-        Assert.IsTrue(result.Succes); //Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success); //Проверка, что функция выполнилась успешно
         Assert.AreEqual(3, result.DataList.Count); //Проверка что возвращено 3 отчета
                                                    //(Так как только 3 отчета в данном тесте имеют подходящие данные)
     }
 
     //Поиск по несуществующему статусу
     [Test]
-    public void ReportManager_getReportsStatus_NotFoundSataus_Failure()
+    public void ReportManager_getReportsStatus_NotFoundStatus_Failure()
     {
         var result = _reportManager.getReportsStatus("Устал");
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не был успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не был успешным
         Assert.That(result.Report, Is.EqualTo("Reports Status = Устал NotFound")); // Проверка сообщения об ошибке
 
     }
@@ -307,7 +307,7 @@ public class TestReportManager
     public void ReportManager_getReportsDate_Success()
     {
         var result = _reportManager.getReportsDate(DateTime.Now.Date); //.Date ставит дату с временем 0:00, чтобы поиск осуществлялся только по дате
-        Assert.IsTrue(result.Succes); //Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success); //Проверка, что функция выполнилась успешно
         Assert.IsNotNull(result.DataList); //Проверка что функция вернула не нулевой список отчетов
     }
 
@@ -317,7 +317,7 @@ public class TestReportManager
     {
         var result = _reportManager.getReportsDate
             (DateTime.MaxValue);
-        Assert.IsFalse(result.Succes);//Проверка, что поиск не был успешным
+        Assert.IsFalse(result.Success);//Проверка, что поиск не был успешным
         Assert.That(result.Report, Is.EqualTo($"Reports CreatedDate = {DateTime.MaxValue} NotFound")); // Проверка сообщения об ошибке
 
     }
@@ -329,7 +329,7 @@ public class TestReportManager
     public void ReportManager_getReportsCount_Success()
     {
         var result = _reportManager.getReportsCount();
-        Assert.IsTrue(result.Succes);  //Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);  //Проверка, что функция выполнилась успешно
         Assert.AreEqual(5, result.Count); //Проверка что возвращенное число 5
         Assert.That(result.Report, Is.EqualTo($"найдено 5 записей"));
         //(Так как в данном тесте 5 отчетов)
@@ -348,7 +348,7 @@ public class TestReportManager
 
 
         var result = _reportManager.getReportsCount();
-        Assert.IsTrue(result.Succes);  //Проверка, что функция выполнилась успешно
+        Assert.IsTrue(result.Success);  //Проверка, что функция выполнилась успешно
         Assert.AreEqual(0, result.Count); //Проверка что возвращенное число 0
         Assert.That(result.Report, Is.EqualTo($"найдено 0 записей"));
         //(Так как вcе отчеты удалены)
