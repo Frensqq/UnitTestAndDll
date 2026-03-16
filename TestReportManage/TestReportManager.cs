@@ -13,7 +13,6 @@ public class TestReportManager
     [SetUp]
     public void SetUp()
     {
-
         //Создание записей для словаря отчетов
         Report report = new Report(
             "финансовый",
@@ -22,7 +21,6 @@ public class TestReportManager
             DateTime.Now.Date,
             "Завершен"
             );
-
         Report report1 = new Report(
             "финансовый",
             "test description 2",
@@ -51,8 +49,6 @@ public class TestReportManager
             DateTime.Now.Date,
             "в процессе"
             );
-
-
         //Инициализация словаря отчетов с 5-ю записями
         _reports = new Dictionary<int, Report>
         {
