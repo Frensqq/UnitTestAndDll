@@ -120,4 +120,3 @@
 - `ReportManager_getReportsDate_NotFoundDate_Failure` — поиск по несуществующей дате
 - `ReportManager_getReportsCount_Success` — подсчет количества отчетов (5 шт.)
 - `ReportManager_getReportsCount_EmptyResponse_Success` — подсчет при пустом словаре (0 шт.)
-```
